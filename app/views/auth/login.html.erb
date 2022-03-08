@@ -1,0 +1,84 @@
+<main class="">
+
+        <!-- ========== signin-section start ========== -->
+        <section class="">
+            <div class="">
+
+                <div class="row g-0 auth-row">
+                    <div class="col-lg-6">
+                        <div class="auth-cover-wrapper bg-primary-100">
+                            <div class="auth-cover">
+                                <div class="title text-center">
+                                    <h1 class="text-primary mb-10">Selamat Datang Kembali 👋</h1>
+                                    <p class="text-medium">
+                                        Yuk login dulu
+                                    </p>
+                                </div>
+                                <div class="cover-image">
+                                    <img src="/vendor/plainadmin/images/auth/signin-image.svg" alt="" />
+                                </div>
+                                <div class="shape-image">
+                                    <img src="/vendor/plainadmin/images/auth/shape.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-6">
+                        <div class="signin-wrapper">
+                            <div class="form-wrapper">
+                                <h6 class="mb-15">Form login</h6>
+                                <p class="text-sm mb-25">
+                                    Mulai ciptakan pengalaman pelanggan anda sebaik mungkin.
+                                </p>
+
+                                <div class="row">
+                                    <!-- end col -->
+                                    <%= form_with url: "/auth/logining", method: :post do |form| %>
+                                        <div class="col-12">
+                                            <div class="input-style-1">
+                                                <%= form.label :email, "Email" %>
+                                                <%= form.text_field :email, placeholder: "email" %>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="input-style-1">
+                                                <%= form.label :password, "Password" %>
+                                                <%= form.password_field :password, placeholder: "password" %>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div
+                                                class="
+                                          button-group
+                                          d-flex
+                                          justify-content-center
+                                          flex-wrap
+                                        ">
+                                                
+                                                <%= form.submit "Sign in", class: "main-btn
+                                            primary-btn
+                                            btn-hover
+                                            w-100
+                                            text-center" %>
+                                            </div>
+                                        </div>
+                                    <% end %>
+                                    <form action='/auth/logining' method="post">
+                                    </form>
+
+
+
+                                </div>
+                                <!-- end row -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+
+                </div>
+                <!-- end row -->
+            </div>
+        </section>
+        <!-- ========== signin-section end ========== -->
+    </main>
