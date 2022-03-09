@@ -31,6 +31,7 @@ class AuthController < ApplicationController
         if BCrypt::Password.new(akun['pass']) == currPass
             session[:user_id] = akun['id_account']
             session[:email] = akun['email']
+            session[:role] = akun['id_role']
 
             redirect_to admin_index_path
         else
@@ -38,5 +39,11 @@ class AuthController < ApplicationController
             flash[:danger] = 'Akun tidak ditemukan'
         end
         
+    end
+
+    def logout
+        session.clear
+
+        redirect_to root_path
     end
 end

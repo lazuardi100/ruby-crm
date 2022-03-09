@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'auth/index'
   get 'auth/api'
   get 'admin/index'
+  get 'auth/logout'
   post 'auth/logining', to: 'auth#logining'
 end
