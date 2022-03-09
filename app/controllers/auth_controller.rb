@@ -1,3 +1,4 @@
+require 'bcrypt'
 class AuthController < ApplicationController
     def index
         @greet = 'hello world'
@@ -12,10 +13,19 @@ class AuthController < ApplicationController
 
     def logining
         
-        binding.pry
-        
-        respond_to do |format|
-            format.json { render action:'show', status: 'ok' }
+        currPass = params[:password]
+        akun = Account.where(email: params[:email]).first.as_json
+
+        BCrypt::Engine.cost = 12
+
+        if BCrypt::Password.new(akun['pass']) == currPass
+            isVerified = true
+        else
+            isVerified = false
         end
+
+        
+        # binding.pry
+        
     end
 end
