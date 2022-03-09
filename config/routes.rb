@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'auth/logout'
   get 'admin/products'
   get 'admin/calon_customers'
+  get 'customer/delete'
 
   post 'auth/logining', to: 'auth#logining'
   post 'product/add', to: 'products#add'

@@ -12,4 +12,11 @@ class CustomerController < ApplicationController
 
         redirect_to admin_calon_customers_path
     end
+
+    def delete
+        Customer.destroy_by(id_customers: params[:id])
+
+        flash[:success] = 'Customer berhasil dihapus'
+        redirect_to admin_calon_customers_path
+    end
 end

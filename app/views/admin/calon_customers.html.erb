@@ -34,6 +34,7 @@
                         <th>Nama</th>
                         <th>Telepon</th>
                         <th>Status</th>
+                        <th>Hapus</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,6 +44,12 @@
                                 <td><%= calon.nama_customer%></td>
                                 <td><%= calon.no_hp%></td>
                                 <td><%= calon.status%></td>
+                                <td>
+                                    <%= link_to customer_delete_path(:id => calon.id_customers), 
+                                        class: 'btn btn-danger' do %>
+                                        <i class="ri-close-line"></i>
+                                    <% end %>
+                                </td>
                             </tr>
                         <% end %>
                     <% end %>
