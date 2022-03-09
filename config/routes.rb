@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get 'customer/delete'
   get 'admin/customers'
   get 'manager/approval'
+  get 'customer/approved'
+  get 'customer/rejected'
 
   post 'auth/logining', to: 'auth#logining'
   post 'product/add', to: 'products#add'

@@ -27,6 +27,22 @@ class CustomerController < ApplicationController
         customer.save
 
         flash[:success] = 'Customer berhasil ditambahkan'
-        redirect_to admin_cutomers_path
+        redirect_to admin_customers_path
+    end
+
+    def approved
+        customer = Customer.find_by(id_customers: params[:id])
+        customer.id_status = 3
+        customer.save
+
+        redirect_to manager_approval_path
+    end
+
+    def rejected
+        customer = Customer.find_by(id_customers: params[:id])
+        customer.id_status = 4
+        customer.save
+
+        redirect_to manager_approval_path
     end
 end

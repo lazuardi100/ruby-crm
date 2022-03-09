@@ -29,3 +29,21 @@
         </div>
     </div>
 <% end %>
+
+<% content_for :script do%>
+    <script>
+        function approve(id, nama) {
+            let text = `Anda yakin ingin approve ${nama}?`
+            if (confirm(text) == true) {
+                window.location.href = '/customer/approved?id=' + id
+            }
+        }
+
+        function reject(id, nama) {
+            let text = `Anda yakin ingin reject ${nama}?`
+            if (confirm(text) == true) {
+                window.location.href = '/customer/rejected?id=' + id
+            }
+        }
+    </script>
+<% end %>
