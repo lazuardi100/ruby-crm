@@ -33,7 +33,11 @@ class AuthController < ApplicationController
             session[:email] = akun['email']
             session[:role] = akun['id_role']
 
-            redirect_to admin_products_path
+            if akun['id_role'] == 1
+                redirect_to admin_products_path
+            elsif akun['id_role'] == 2
+                redirect_to manager_approval_path
+            end
         else
             session.clear
             flash[:danger] = 'Akun tidak ditemukan'

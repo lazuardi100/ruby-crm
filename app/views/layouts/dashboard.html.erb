@@ -52,7 +52,7 @@
                 <% end %>
                 <% if session[:role] == 2 %>
                     <li class="nav-item">
-                        <a class="link" href={{ route('dashboard.approval') }}>
+                        <a class="link" href=<%= manager_approval_path %>>
                             <i class="ri-shield-check-line"></i>
                             <span class="text ml-3">Approval</span>
                         </a>

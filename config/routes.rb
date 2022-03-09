@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'admin/calon_customers'
   get 'customer/delete'
   get 'admin/customers'
+  get 'manager/approval'
 
   post 'auth/logining', to: 'auth#logining'
   post 'product/add', to: 'products#add'
