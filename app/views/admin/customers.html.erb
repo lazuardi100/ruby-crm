@@ -1,0 +1,62 @@
+<% content_for :title, 'Customers'%>
+
+<% content_for :content do%>
+<div>
+
+    <div class="card-style">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#input_data"
+            aria-expanded="false" aria-controls="input_data">
+            Tambah Customer
+        </button>
+        <div class="collapse" id="input_data">
+            <div class="card card-body">
+                <%= form_with url: customer_to_pending_path, method: :post do |form|%>
+                    <%= form.label :calon_customer, "Pilih calon customer", class: 'form-label'%>
+                    <select class="form-select selecting" name="calon_customer" id="">
+                        <% @calons.each do |calon|%>
+                            <option value=<%= calon.id_customers%>><%= calon.nama_customer%></option>
+                        <% end %>
+                    </select>
+                    <%= form.label :products, "Pilih produk", class: 'form-label'%>
+                    <select class="form-select selecting" name="produk" id="">
+                        <% @products.each do |product|%>
+                            <option value=<%= product.id_product %>><%= product.nama_product%></option>
+                        <% end %>
+                    </select>
+                    <%= form.submit "Simpan", class:"btn btn-primary mt-2"%>
+                <% end %>
+            </div>
+        </div>
+        <% flash.each do |key, val|%>
+                <div class="alert alert-<%= key %> alert-dismissible fade show mt-3">
+                    <%= val %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% end %>
+    </div>
+
+    <div class="card-style mt-3">
+        <table class="table" id='myTable'>
+            <thead>
+                <tr>
+                    <th>Nama</th>
+                    <th>No Telp</th>
+                    <th>Produk</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @customers.each do |customer|%>
+                    <tr>
+                        <td><%= customer.nama_customer%></td>
+                        <td><%= customer.no_hp%></td>
+                        <td><%= customer.nama_product%></td>
+                        <td><%= customer.status%></td>
+                    </tr>
+                <% end %>
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+<% end %>

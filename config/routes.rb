@@ -10,8 +10,10 @@ Rails.application.routes.draw do
   get 'admin/products'
   get 'admin/calon_customers'
   get 'customer/delete'
+  get 'admin/customers'
 
   post 'auth/logining', to: 'auth#logining'
   post 'product/add', to: 'products#add'
   post 'customer/add', to: 'customer#add'
+  post 'customer/to_pending', to: 'customer#to_pending'
 end
