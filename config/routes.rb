@@ -7,5 +7,8 @@ Rails.application.routes.draw do
   get 'auth/api'
   get 'admin/index'
   get 'auth/logout'
+  get 'admin/products'
+
   post 'auth/logining', to: 'auth#logining'
+  post 'product/add', to: 'products#add'
 end
