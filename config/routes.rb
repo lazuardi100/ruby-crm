@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root "auth#login"
   get 'auth/index'
   get 'auth/api'
+  get 'admin/index'
   post 'auth/logining', to: 'auth#logining'
 end

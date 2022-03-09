@@ -46,6 +46,12 @@
                                                 <%= form.label :password, "Password" %>
                                                 <%= form.password_field :password, placeholder: "password" %>
                                             </div>
+                                            <% flash.each do |key, val|%>
+                                                <div class="alert alert-<%= key %> alert-dismissible fade show">
+                                                    <%= val %>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                                </div>
+                                            <% end %>
                                         </div>
                                         <div class="col-12">
                                             <div
@@ -66,9 +72,6 @@
                                     <% end %>
                                     <form action='/auth/logining' method="post">
                                     </form>
-
-
-
                                 </div>
                                 <!-- end row -->
                             </div>

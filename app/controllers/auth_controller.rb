@@ -15,17 +15,28 @@ class AuthController < ApplicationController
         
         currPass = params[:password]
         akun = Account.where(email: params[:email]).first.as_json
-
+        
+        if  !(akun.nil?)
+            session.clear
+            flash[:danger] = 'Akun tidak ditemukan'
+            
+            isNill = true
+            
+        end
+        
         BCrypt::Engine.cost = 12
+        
+        
 
         if BCrypt::Password.new(akun['pass']) == currPass
-            isVerified = true
-        else
-            isVerified = false
-        end
+            session[:user_id] = akun['id_account']
+            session[:email] = akun['email']
 
-        
-        # binding.pry
+            redirect_to admin_index_path
+        else
+            session.clear
+            flash[:danger] = 'Akun tidak ditemukan'
+        end
         
     end
 end
