@@ -1,0 +1,55 @@
+<% content_for :title, 'Customers'%>
+
+<% content_for :content do %>
+    <div>
+        <div class="card-style">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#input_data"
+                aria-expanded="false" aria-controls="input_data">
+                Tambah Calon Customer
+            </button>
+            <div class="collapse" id="input_data">
+                <div class="card card-body">
+                    <%= form_with url: customer_add_path, method: :post do |form|%>
+                        <%= form.label :nama_customer, "Masukkan nama calon customer", class:"form-label" %>
+                        <%= form.text_field :nama_customer, placeholder: "Nama Customer", class: "form-control mb-3"%>
+                        <%= form.label :no_hp, "Masukkan nomor hp calon customer", class:"form-label" %>
+                        <%= form.text_field :no_hp, placeholder: "08xxxxx", class: "form-control mb-3"%>
+                        <%= form.submit "Simpan", class:"btn btn-primary"%>
+                    <% end %>
+                </div>
+            </div>
+            <% flash.each do |key, val|%>
+                <div class="alert alert-<%= key %> alert-dismissible fade show mt-3">
+                    <%= val %>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <% end %>
+        </div>
+
+
+        <div class="card-style mt-3">
+            <table class="table" id='myTable'>
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Telepon</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if !@calons.nil?%>
+                        <% @calons.each do |calon|%>
+                            <tr>
+                                <td><%= calon.nama_customer%></td>
+                                <td><%= calon.no_hp%></td>
+                                <td><%= calon.status%></td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                        
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+<% end %>

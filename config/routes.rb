@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get 'admin/index'
   get 'auth/logout'
   get 'admin/products'
+  get 'admin/calon_customers'
 
   post 'auth/logining', to: 'auth#logining'
   post 'product/add', to: 'products#add'
+  post 'customer/add', to: 'customer#add'
 end

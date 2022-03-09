@@ -32,13 +32,13 @@
             <ul>
                 <% if session[:role] == 1 %>
                     <li class="nav-item">
-                        <a class="link" href={{ route('dashboard.calonCus') }}>
+                        <a class="link" href=<%= admin_calon_customers_path%>>
                             <i class="ri-customer-service-line"></i>
                             <span class="text ml-3">Calon Customer</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="link" href={{ route('dashboard.customer') }}>
+                        <a class="link" href='/'>
                             <i class="ri-customer-service-2-line"></i>
                             <span class="text ml-3">Customer</span>
                         </a>
