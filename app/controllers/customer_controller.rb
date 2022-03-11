@@ -5,9 +5,9 @@ class CustomerController < ApplicationController
             id_status: 1);
         
         if customers.save
-            flash[:success] = 'Produk '+params[:nama_customer]+' berhasil ditambahkan'
+            flash[:success] = 'Calon konsumen '+params[:nama_customer]+' berhasil ditambahkan'
         else
-            flash[:danger] = 'Produk '+params[:nama_customer]+' gagal ditambakan'
+            flash[:danger] = customers.errors.full_messages
         end
 
         redirect_to admin_calon_customers_path

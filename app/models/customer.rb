@@ -1,3 +1,3 @@
 class Customer < ApplicationRecord
-    has_one :products, :class_name => 'Product', :foreign_key => 'id_product', :primary_key => 'id_product'
+    belongs_to :products, :class_name => 'Product', :foreign_key => 'id_product', :primary_key => 'id_product', optional: true
 end

@@ -7,6 +7,6 @@ module Types
     field :id_status, Integer
     field :nama_customer, String
     field :no_hp, String
-    field :products, Types::ProductType, null: false
+    field :products, Types::ProductType, null: true
   end
 end
