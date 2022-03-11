@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :user
   devise_for :users
+  
+  
   namespace :user do
     root :to => "admin#products"
   end

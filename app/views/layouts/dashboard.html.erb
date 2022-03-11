@@ -35,7 +35,7 @@
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <% if session[:role] == 1 %>
+                <% if current_user.role == 1 %>
                     <li class="nav-item">
                         <a class="link" href=<%= admin_calon_customers_path%>>
                             <i class="ri-customer-service-line"></i>
@@ -55,7 +55,7 @@
                         </a>
                     </li>
                 <% end %>
-                <% if session[:role] == 2 %>
+                <% if current_user.role == 2 %>
                     <li class="nav-item">
                         <a class="link" href=<%= manager_approval_path %>>
                             <i class="ri-shield-check-line"></i>
@@ -115,7 +115,7 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
                                     <li>
                                         
-                                        <%= link_to "Log out", auth_logout_path, class:"lni lni-exit"%>
+                                        <%= link_to "Log out", destroy_user_session_path, class:"lni lni-exit"%>
                                     </li>
                                 </ul>
                             </div>
