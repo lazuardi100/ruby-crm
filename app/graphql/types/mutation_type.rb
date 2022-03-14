@@ -1,5 +1,6 @@
 module Types
   class MutationType < Types::BaseObject
+    field :add_customer, mutation: Mutations::AddCustomer
     field :delete_customer, mutation: Mutations::DeleteCustomer
     # field :customer, mutation: Mutations::Customer
     # TODO: remove me
