@@ -1,5 +1,7 @@
 require 'bcrypt'
 class AuthController < ApplicationController
+    skip_before_action :authenticate_user!, :only => [:login_api]
+
     def index
         @greet = 'hello world'
     end
@@ -43,6 +45,38 @@ class AuthController < ApplicationController
             flash[:danger] = 'Akun tidak ditemukan'
         end
         
+    end
+
+    def csrf_token
+        # return session[:_csrf_token]
+        return render :status => 200,
+              :json => { :token => session[:_csrf_token] }
+    end
+
+    def login_api
+
+        user = User.find_by_email(params['email'].downcase)
+        if  user.nil?
+            return render :status => 200,
+              :json => { :success => false,
+                      :info => "Gagal login email"
+                        }
+        end
+        
+        if user.valid_password?(params['password']) then
+            sign_in(user)
+            return render :status => 200,
+              :json => { :success => true,
+                      :info => "Logged in",
+                      :user => current_user
+                        }
+            # success
+          else
+            return render :status => 202,
+              :json => { :success => false,
+                      :info => "Gagal login password"
+                        }
+          end
     end
 
     def logout

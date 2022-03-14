@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   get 'customer/approved'
   get 'customer/rejected'
 
+  get 'auth/csrf_token'
+  # API
+  get 'auth/login_api'
+
   post 'auth/logining', to: 'auth#logining'
   post 'product/add', to: 'products#add'
   post 'customer/add', to: 'customer#add'

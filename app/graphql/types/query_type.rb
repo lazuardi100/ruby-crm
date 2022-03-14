@@ -23,7 +23,7 @@ module Types
     end
 
     def cari_customer(id:)
-      Customer.find_by(id_customers: id)
+      Customer.find_by(id_customer: id)
     end
 
     def customers
