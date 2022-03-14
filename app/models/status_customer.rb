@@ -1,0 +1,2 @@
+class StatusCustomer < ApplicationRecord
+end

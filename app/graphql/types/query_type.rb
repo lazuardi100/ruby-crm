@@ -14,8 +14,16 @@ module Types
     field :customers, [Types::CustomerType], null: false,
       description: "All customer"
     
+    field :cari_customer, Types::CustomerType, null: true do
+      argument :id, Integer, required: true
+    end
+
     def test_field
       "Hello World!"
+    end
+
+    def cari_customer(id:)
+      Customer.find_by(id_customers: id)
     end
 
     def customers
