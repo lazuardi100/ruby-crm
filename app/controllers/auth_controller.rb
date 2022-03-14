@@ -1,6 +1,6 @@
 require 'bcrypt'
 class AuthController < ApplicationController
-    skip_before_action :authenticate_user!, :only => [:login_api]
+    skip_before_action :authenticate_user!, :only => [:login_api, :csrf_token]
 
     def index
         @greet = 'hello world'
