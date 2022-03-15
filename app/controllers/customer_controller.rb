@@ -21,7 +21,7 @@ class CustomerController < ApplicationController
     end
 
     def to_pending
-        customer = Customer.find_by(id_customers: params[:calon_customer])
+        customer = Customer.find_by(id_customer: params[:calon_customer])
         customer.id_product = params[:produk]
         customer.id_status = 2
         customer.save
@@ -31,7 +31,7 @@ class CustomerController < ApplicationController
     end
 
     def approved
-        customer = Customer.find_by(id_customers: params[:id])
+        customer = Customer.find_by(id_customer: params[:id])
         customer.id_status = 3
         customer.save
 
@@ -39,7 +39,7 @@ class CustomerController < ApplicationController
     end
 
     def rejected
-        customer = Customer.find_by(id_customers: params[:id])
+        customer = Customer.find_by(id_customer: params[:id])
         customer.id_status = 4
         customer.save
 

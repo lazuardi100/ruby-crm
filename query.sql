@@ -17,7 +17,7 @@ create table status_customer(
 );
 
 create table customers(
-	id_customers serial primary key,
+	id_customer serial primary key,
 	id_product int,
 	id_status int,
 	nama_customer varchar,

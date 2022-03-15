@@ -14,7 +14,7 @@
                     <%= form.label :calon_customer, "Pilih calon customer", class: 'form-label'%>
                     <select class="form-select selecting" name="calon_customer" id="">
                         <% @calons.each do |calon|%>
-                            <option value=<%= calon.id_customers%>><%= calon.nama_customer%></option>
+                            <option value=<%= calon.id_customer%>><%= calon.nama_customer%></option>
                         <% end %>
                     </select>
                     <%= form.label :products, "Pilih produk", class: 'form-label'%>
