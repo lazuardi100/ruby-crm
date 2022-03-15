@@ -20,15 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
-development:
-  <<: *default
-  database: crm_master_development
-
-  # The specified database role being used to connect to postgres.
-  # To create additional roles in postgres see `$ createuser --help`.
-  # When left blank, postgres will use the default role. This is
-  # the same name as the operating system user running Rails.
+  port: 5432
+  database: dbhv5ogv5q3atq
   username: hlqahdddbcmuhl
 
   # The password associated with the postgres role (username).
@@ -39,10 +32,18 @@ development:
   # domain sockets, so uncomment these lines.
   host: ec2-52-207-74-100.compute-1.amazonaws.com
 
+development:
+  <<: *default
+
+  # The specified database role being used to connect to postgres.
+  # To create additional roles in postgres see `$ createuser --help`.
+  # When left blank, postgres will use the default role. This is
+  # the same name as the operating system user running Rails.
+  
+
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-  port: 5432
-  database: dbhv5ogv5q3atq
+  
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -82,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: crm_master_production
-  username: crm_master
-  password: <%= ENV["CRM_MASTER_DATABASE_PASSWORD"] %>
+  # database: crm_master_production
+  # username: crm_master
+  # password: <%= ENV["CRM_MASTER_DATABASE_PASSWORD"] %>
