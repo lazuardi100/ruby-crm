@@ -9,18 +9,18 @@ module Mutations
     argument :name, String, required: true
     argument :no_hp, String, required: true
 
-    field :customer, Types::CustomerType, null: true
+    # field :customer, Types::CustomerType, null: true
 
-    # type Types::CustomerType
+    type Types::CustomerType
 
     # TODO: define resolve method
     # def resolve(name:)
     #   { post: ... }
     # end
     def resolve(name:, no_hp:)
-      customer = Customer.new(nama_customer: name, no_hp: no_hp)
+      Customer.create!(nama_customer: name, no_hp: no_hp)
 
-      customer.save
+      # customer.save
 
       # Types::CustomerType
     end

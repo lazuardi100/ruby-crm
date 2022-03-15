@@ -15,7 +15,7 @@ module Types
       description: "All customer"
     
     field :cari_customer, Types::CustomerType, null: true do
-      argument :id, Integer, required: true
+      argument :id, String, required: true
     end
 
     def test_field
@@ -23,7 +23,7 @@ module Types
     end
 
     def cari_customer(id:)
-      Customer.find_by(id_customer: id)
+      Customer.find_by(id_customer: Integer(id))
     end
 
     def customers
